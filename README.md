@@ -1,73 +1,278 @@
-# React + TypeScript + Vite
+# Unify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NeighborNet is an AI-powered community engagement platform designed to strengthen neighborhood resilience by connecting residents, volunteers, and local resources in real time.
 
-Currently, two official plugins are available:
+The platform enables community members to request help, offer skills or resources, participate in local initiatives, and receive AI-powered recommendations that foster meaningful local connections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Problem Statement
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Communities often struggle to coordinate resources, volunteers, and assistance during emergencies or everyday needs.
 
-## Expanding the ESLint configuration
+NeighborNet addresses this challenge by:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Connecting residents with nearby helpers
+- Facilitating skill sharing within neighborhoods
+- Supporting emergency resource requests
+- Promoting community initiatives
+- Using AI to identify and recommend relevant connections
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### User Authentication
+
+- Secure registration and login
+- JWT-based authentication
+- Resident profile management
+
+### Skill Sharing
+
+Residents can offer:
+
+- Tutoring
+- Technical Support
+- Plumbing
+- Electrical Services
+- Medical Assistance
+- And more
+
+### Help Requests
+
+Users can request:
+
+- Food
+- Medicine
+- Transportation
+- Shelter
+- Emergency Support
+- Community Assistance
+
+### AI-Powered Matching
+
+The system intelligently matches:
+
+- People needing help
+- Available volunteers
+- Resource providers
+- Community opportunities
+
+### Real-Time Communication
+
+- Instant messaging
+- Volunteer coordination
+- Live notifications
+
+### Community Initiatives
+
+Create and join:
+
+- Tree Plantation Drives
+- Blood Donation Camps
+- Awareness Programs
+- Community Events
+
+### Location-Based Discovery
+
+- Interactive map
+- Nearby volunteers
+- Resource locations
+- Community events
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
+- React Leaflet
+
+### Backend
+
+- Ruby on Rails API
+- JWT Authentication
+- Action Cable (WebSockets)
+
+### Database
+
+- MongoDB
+
+### AI Layer
+
+- Python
+- Sentence Transformers
+- Embeddings-Based Matching
+
+### Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
+- MongoDB Database
+
+---
+
+## System Architecture
+
+```text
+                 React Frontend
+                        |
+                        |
+                  Rails API
+                        |
+      --------------------------------
+      |              |              |
+      |              |              |
+ MongoDB     WebSockets      AI Service
+                                (Python)
+                                      |
+                                      |
+                           Semantic Matching
+                           Recommendation Engine
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Database Schema
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Users
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+id
+name
+email
+phone
+latitude
+longitude
 ```
+
+### Skills
+
+```text
+id
+user_id
+title
+category
+description
+```
+
+### Requests
+
+```text
+id
+user_id
+title
+description
+category
+priority
+status
+```
+
+### Offers
+
+```text
+id
+user_id
+title
+description
+category
+status
+```
+
+### Matches
+
+```text
+id
+request_id
+offer_id
+similarity_score
+```
+
+### Messages
+
+```text
+id
+sender_id
+receiver_id
+message
+```
+
+### Initiatives
+
+```text
+id
+title
+description
+location
+event_date
+organizer_id
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yourusername/neighbornet.git
+cd neighbornet
+```
+
+### Frontend Setup
+
+```bash
+cd client
+
+npm install
+
+npm run dev
+```
+
+### Backend Setup
+
+```bash
+cd server
+
+bundle install
+
+rails db:create
+rails db:migrate
+
+rails server
+```
+
+### AI Service Setup
+
+```bash
+pip install sentence-transformers
+pip install fastapi uvicorn
+
+uvicorn app:app --reload
+```
+
+---
+
+## Future Enhancements
+
+- Disaster Response Dashboard
+- NGO Integration
+- Government Service Integration
+- Resource Demand Forecasting
+- AI Chat Assistant
+- Mobile Application
+- Multi-Language Support
+
+---
+
+## Team Vision
+
+Unify aims to transform neighborhoods into connected, resilient, and self-sustaining communities by leveraging technology, AI, and local collaboration.
+
+Together, we build stronger communities.
+
+---
