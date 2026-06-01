@@ -10,7 +10,7 @@ The platform enables community members to request help, offer skills or resource
 
 Communities often struggle to coordinate resources, volunteers, and assistance during emergencies or everyday needs.
 
-NeighborNet addresses this challenge by:
+Unify addresses this challenge by:
 
 - Connecting residents with nearby helpers
 - Facilitating skill sharing within neighborhoods
