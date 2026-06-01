@@ -219,8 +219,8 @@ organizer_id
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/neighbornet.git
-cd neighbornet
+git clone https://github.com/yourusername/Unify
+cd Unify
 ```
 
 ### Frontend Setup
