@@ -1,6 +1,6 @@
 # Unify
 
-NeighborNet is an AI-powered community engagement platform designed to strengthen neighborhood resilience by connecting residents, volunteers, and local resources in real time.
+Unify is an AI-powered community engagement platform designed to strengthen neighborhood resilience by connecting residents, volunteers, and local resources in real time.
 
 The platform enables community members to request help, offer skills or resources, participate in local initiatives, and receive AI-powered recommendations that foster meaningful local connections.
 
